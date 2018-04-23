@@ -8,19 +8,22 @@ namespace Trein
 {
     public class Wagon
     {
-        private string wagonNummer;
-        private Dictionary<string, Reiziger> eersteKlas = new Dictionary<string, Reiziger>();
-        private Dictionary<string, Reiziger> tweedeKlas = new Dictionary<string, Reiziger>();
+        //Plaatsen aanmaken
+        private int wagonNummer;
+        private Dictionary<string, Reiziger> eersteKlas = new Dictionary<string, Reiziger>(3);
+        private Dictionary<string, Reiziger> tweedeKlas = new Dictionary<string, Reiziger>(4);
 
-        public Wagon(string wagonNummer)
+        //Wagonnummer
+        public Wagon(int wagonNummer)
         {
             this.wagonNummer = wagonNummer;
         }
-
-        public string getWagonNummer()
+        public int getWagonNummer()
         {
             return this.wagonNummer;
         }
+
+        //Instappen Eerste Klas
         public void instappenEersteKlas(EersteKlas eerste1, EersteKlas eerste2, EersteKlas eerste3, EersteKlas eerste4, EersteKlas eerste5)
         {
             instappenEerste(eerste1);
@@ -37,6 +40,7 @@ namespace Trein
             this.eersteKlas.Add(eerste.getName(), eerste);
         }
 
+        //Instappen Tweede Klas
         public void instappenTweedeKlas(Tweedeklas tweede1, Tweedeklas tweede2, Tweedeklas tweede3)
         {
             instappenTweede(tweede1);
@@ -51,6 +55,15 @@ namespace Trein
             this.tweedeKlas.Add(reiziger.getName(), reiziger);
         }
 
+        // Instappen Zwartrijder
+        public void instappenZwart(ZwartRijder zwart)
+        {
+            string key = zwart.getName();
+            ZwartRijder value = zwart;
+            this.tweedeKlas.Add(zwart.getName(), zwart);
+        }
+
+        // Show info
         public void showInfo(Reiziger reiziger, string actie)
         {
             Console.WriteLine(reiziger.getName() + actie);
@@ -66,9 +79,10 @@ namespace Trein
             return tweedeKlas.Count();
         }
 
+        //Aantal mensen in de bus
         public override string ToString()
         {
-            return "Er zitten " + getCountEersteKlas() + " mensen in de eerste klas en " + getCountTweedeKlas() + " mensen in de tweede klas";
+            return "Er zitten " + getCountEersteKlas() + " mens(en) in de eerste klas en " + getCountTweedeKlas() + " mens(en) in de tweede klas";
         }
     }
 }

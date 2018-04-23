@@ -49,6 +49,7 @@
     <Compile Include="Trein.cs" />
     <Compile Include="Tweedeklas.cs" />
     <Compile Include="Wagon.cs" />
+    <Compile Include="ZwartRijder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

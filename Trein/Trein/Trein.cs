@@ -8,12 +8,24 @@ namespace Trein
 {
     public class Trein
     {
-        private Dictionary<string, Wagon> wagons = new Dictionary<string, Wagon>();
+        private Dictionary<int, Wagon> wagons = new Dictionary<int, Wagon>();
         public void wagonKoppelen(Wagon wagon)
         {
-            string key = wagon.getWagonNummer();
+            int key = wagon.getWagonNummer();
             Wagon value = wagon;
             this.wagons.Add(wagon.getWagonNummer(), wagon);
         }
+
+        private int wagonCount()
+        {
+            return wagons.Count();
+        }
+
+        public override string ToString()
+        {
+            return "Er zit(ten) " + wagonCount() + " wagon(s) aan de trein";
+        }
     }
+
+
 }

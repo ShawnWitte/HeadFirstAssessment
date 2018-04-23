@@ -9,7 +9,7 @@ namespace Trein
     public class Reiziger
     {
         private string name;
-        private int klasse;
+        private int kaartje;
 
         public Reiziger(string name)
         {
@@ -21,6 +21,16 @@ namespace Trein
             return this.name;
         }
 
-       
+        public Reiziger(int kaartje)
+        {
+            this.kaartje = kaartje;
+        }
+
+        public int getKaartje()
+        {
+            return this.kaartje;
+        }
+
+        
     }
 }
