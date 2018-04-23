@@ -10,6 +10,15 @@ namespace Trein
     {
         static void Main(string[] args)
         {
+            Wagon wagon = new Wagon();
+            EersteKlas piet = new EersteKlas("Piet");
+            Tweedeklas hans = new Tweedeklas("Hans");
+            
+            wagon.instappenEerste(piet);
+            wagon.instappenTweede(hans);
+            Console.WriteLine(wagon);
+
+            Console.ReadLine();
         }
     }
 }

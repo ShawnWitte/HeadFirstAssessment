@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trein
 {
-    class EersteKlas : Reiziger
+    public class EersteKlas : Reiziger
     {
         public EersteKlas(string name) : base(name) { }
     }
