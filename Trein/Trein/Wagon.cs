@@ -8,14 +8,26 @@ namespace Trein
 {
     public class Wagon
     {
+        private string wagonNummer;
         private Dictionary<string, Reiziger> eersteKlas = new Dictionary<string, Reiziger>();
         private Dictionary<string, Reiziger> tweedeKlas = new Dictionary<string, Reiziger>();
 
-        public void instappeEersteKlas(EersteKlas eerste1, EersteKlas eerste2, EersteKlas eerste3)
+        public Wagon(string wagonNummer)
+        {
+            this.wagonNummer = wagonNummer;
+        }
+
+        public string getWagonNummer()
+        {
+            return this.wagonNummer;
+        }
+        public void instappenEersteKlas(EersteKlas eerste1, EersteKlas eerste2, EersteKlas eerste3, EersteKlas eerste4, EersteKlas eerste5)
         {
             instappenEerste(eerste1);
             instappenEerste(eerste2);
             instappenEerste(eerste3);
+            instappenEerste(eerste4);
+            instappenEerste(eerste5);
         }
 
         public void instappenEerste(EersteKlas eerste)
