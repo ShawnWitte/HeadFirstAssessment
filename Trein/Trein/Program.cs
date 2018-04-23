@@ -18,6 +18,7 @@ namespace Trein
             //Instappers aanmaken
             EersteKlas piet = new EersteKlas("Piet");
             Tweedeklas hans = new Tweedeklas("Hans");
+            Tweedeklas jaap = new Tweedeklas("Jaap");
             ZwartRijder thomas = new ZwartRijder("Thomas");
             
             //Laten instappen

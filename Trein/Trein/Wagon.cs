@@ -52,7 +52,7 @@ namespace Trein
         {
             string key = reiziger.getName();
             Tweedeklas value = reiziger;
-            if (getCountTweedeKlas() > 4)
+            if (getCountTweedeKlas() == 4)
             {
                 this.eersteKlas.Add(reiziger.getName(), reiziger);
             }
