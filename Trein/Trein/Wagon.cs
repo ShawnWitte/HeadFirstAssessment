@@ -52,7 +52,14 @@ namespace Trein
         {
             string key = reiziger.getName();
             Tweedeklas value = reiziger;
-            this.tweedeKlas.Add(reiziger.getName(), reiziger);
+            if (getCountTweedeKlas() > 4)
+            {
+                this.eersteKlas.Add(reiziger.getName(), reiziger);
+            }
+            else
+            {
+                this.tweedeKlas.Add(reiziger.getName(), reiziger);
+            }
         }
 
         // Instappen Zwartrijder
@@ -61,6 +68,7 @@ namespace Trein
             string key = zwart.getName();
             ZwartRijder value = zwart;
             this.tweedeKlas.Add(zwart.getName(), zwart);
+
         }
 
         // Show info
