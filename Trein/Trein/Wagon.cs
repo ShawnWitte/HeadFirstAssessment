@@ -26,14 +26,14 @@ namespace Trein
         //Instappen Eerste Klas
         public void instappenEersteKlas(EersteKlas eerste1, EersteKlas eerste2, EersteKlas eerste3, EersteKlas eerste4, EersteKlas eerste5)
         {
-            instappenEerste(eerste1);
-            instappenEerste(eerste2);
-            instappenEerste(eerste3);
-            instappenEerste(eerste4);
-            instappenEerste(eerste5);
+            instappen(eerste1);
+            instappen(eerste2);
+            instappen(eerste3);
+            instappen(eerste4);
+            instappen(eerste5);
         }
 
-        public void instappenEerste(EersteKlas eerste)
+        public void instappen(EersteKlas eerste)
         {
             string key = eerste.getName();
             EersteKlas value = eerste;
@@ -43,12 +43,12 @@ namespace Trein
         //Instappen Tweede Klas
         public void instappenTweedeKlas(Tweedeklas tweede1, Tweedeklas tweede2, Tweedeklas tweede3)
         {
-            instappenTweede(tweede1);
-            instappenTweede(tweede2);
-            instappenTweede(tweede3);
+            instappen(tweede1);
+            instappen(tweede2);
+            instappen(tweede3);
         }
 
-        public void instappenTweede(Tweedeklas reiziger)
+        public void instappen(Tweedeklas reiziger)
         {
             string key = reiziger.getName();
             Tweedeklas value = reiziger;
@@ -63,7 +63,7 @@ namespace Trein
         }
 
         // Instappen Zwartrijder
-        public void instappenZwart(ZwartRijder zwart)
+        public void instappen(ZwartRijder zwart)
         {
             string key = zwart.getName();
             ZwartRijder value = zwart;

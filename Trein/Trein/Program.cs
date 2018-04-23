@@ -22,9 +22,9 @@ namespace Trein
             ZwartRijder thomas = new ZwartRijder("Thomas");
             
             //Laten instappen
-            wagon.instappenEerste(piet);
-            wagon.instappenTweede(hans);
-            wagon.instappenZwart(thomas);
+            wagon.instappen(piet);
+            wagon.instappen(hans);
+            wagon.instappen(thomas);
             Console.WriteLine(wagon);
             Console.WriteLine(trein);
 
