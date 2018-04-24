@@ -37,8 +37,16 @@ namespace Trein
             {
                 string key = reiziger.getName();
                 Reiziger value = reiziger;
-                this.tweedeKlas.Add(reiziger.getName(), reiziger);
-                showInfo(reiziger, " is ingestapt");
+                if (tweedeKlas.Count().Equals(4))
+                {
+                    this.eersteKlas.Add(reiziger.getName(), reiziger);
+                    showInfo(reiziger, " is ingestapt");
+                }
+                else
+                {
+                    this.tweedeKlas.Add(reiziger.getName(), reiziger);
+                    showInfo(reiziger, " is ingestapt");
+                }
             }
         }
 
