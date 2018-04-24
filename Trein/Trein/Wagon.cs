@@ -23,53 +23,45 @@ namespace Trein
             return this.wagonNummer;
         }
 
-        //Instappen Eerste Klas
-        public void instappenEersteKlas(EersteKlas eerste1, EersteKlas eerste2, EersteKlas eerste3, EersteKlas eerste4, EersteKlas eerste5)
+        
+        public void instappen(Reiziger reiziger)
         {
-            instappen(eerste1);
-            instappen(eerste2);
-            instappen(eerste3);
-            instappen(eerste4);
-            instappen(eerste5);
-        }
-
-        public void instappen(EersteKlas eerste)
-        {
-            string key = eerste.getName();
-            EersteKlas value = eerste;
-            this.eersteKlas.Add(eerste.getName(), eerste);
-        }
-
-        //Instappen Tweede Klas
-        public void instappenTweedeKlas(Tweedeklas tweede1, Tweedeklas tweede2, Tweedeklas tweede3)
-        {
-            instappen(tweede1);
-            instappen(tweede2);
-            instappen(tweede3);
-        }
-
-        public void instappen(Tweedeklas reiziger)
-        {
-            string key = reiziger.getName();
-            Tweedeklas value = reiziger;
-            if (getCountTweedeKlas() == 4)
+            if (reiziger.getKaartje().Equals(1))
             {
+                string key = reiziger.getName();
+                Reiziger value = reiziger;
                 this.eersteKlas.Add(reiziger.getName(), reiziger);
+                showInfo(reiziger, " is ingestapt");
             }
-            else
+            else if (reiziger.getKaartje().Equals(2))
             {
+                string key = reiziger.getName();
+                Reiziger value = reiziger;
                 this.tweedeKlas.Add(reiziger.getName(), reiziger);
+                showInfo(reiziger, " is ingestapt");
             }
         }
 
-        // Instappen Zwartrijder
-        public void instappen(ZwartRijder zwart)
+        public Reiziger uitstappen(Reiziger reiziger)
         {
-            string key = zwart.getName();
-            ZwartRijder value = zwart;
-            this.tweedeKlas.Add(zwart.getName(), zwart);
+            if (reiziger.getKaartje().Equals(1))
+            {
+                Reiziger uitgestapte = eersteKlas[reiziger.getName()];
+                eersteKlas.Remove(reiziger.getName());
+                showInfo(uitgestapte, " is uitgestapt");
+                return uitgestapte;
+            }
+            else if (reiziger.getKaartje().Equals(2))
+            {
+                Reiziger uitgestapte = tweedeKlas[reiziger.getName()];
+                tweedeKlas.Remove(reiziger.getName());
+                showInfo(uitgestapte, " is uitgestapt");
+                return uitgestapte;
+            }
 
+            else return null;
         }
+
 
         // Show info
         public void showInfo(Reiziger reiziger, string actie)

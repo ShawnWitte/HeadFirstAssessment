@@ -42,14 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EersteKlas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reiziger.cs" />
     <Compile Include="Trein.cs" />
-    <Compile Include="Tweedeklas.cs" />
     <Compile Include="Wagon.cs" />
-    <Compile Include="ZwartRijder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -11,19 +11,15 @@ namespace Trein
         private string name;
         private int kaartje;
 
-        public Reiziger(string name)
+        public Reiziger(string name, int kaartje)
         {
             this.name = name;
+            this.kaartje = kaartje;
         }
 
         public string getName()
         {
             return this.name;
-        }
-
-        public Reiziger(int kaartje)
-        {
-            this.kaartje = kaartje;
         }
 
         public int getKaartje()

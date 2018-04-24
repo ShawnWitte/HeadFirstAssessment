@@ -16,15 +16,19 @@ namespace Trein
             trein.wagonKoppelen(wagon);
 
             //Instappers aanmaken
-            EersteKlas piet = new EersteKlas("Piet");
-            Tweedeklas hans = new Tweedeklas("Hans");
-            Tweedeklas jaap = new Tweedeklas("Jaap");
-            ZwartRijder thomas = new ZwartRijder("Thomas");
+            Reiziger piet = new Reiziger("Piet", 1);
+            Reiziger hans = new Reiziger("Hans", 2);
+            
             
             //Laten instappen
             wagon.instappen(piet);
             wagon.instappen(hans);
-            wagon.instappen(thomas);
+
+            Console.WriteLine(wagon);
+
+            wagon.uitstappen(piet);
+            wagon.uitstappen(hans);
+            
             Console.WriteLine(wagon);
             Console.WriteLine(trein);
 
