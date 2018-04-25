@@ -34,6 +34,9 @@ namespace Trein
 
 
             Console.WriteLine(wagon);
+
+            wagon.uitstappen("Peter");
+            Console.WriteLine(wagon);
             Console.WriteLine(trein);
 
 

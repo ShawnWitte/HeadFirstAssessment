@@ -23,7 +23,7 @@ namespace Trein
             return this.wagonNummer;
         }
 
-        
+        //Instappen
         public void instappen(Reiziger reiziger)
         {
             if (reiziger.getKaartje().Equals(1))
@@ -49,27 +49,40 @@ namespace Trein
                 }
             }
         }
-
-        public Reiziger uitstappen(Reiziger reiziger)
+        //Uitstappen
+        
+        public Reiziger uitstappen(string name)
         {
-            if (reiziger.getKaartje().Equals(1))
+            if (eersteKlas.ContainsKey(name))
             {
-                Reiziger uitgestapte = eersteKlas[reiziger.getName()];
-                eersteKlas.Remove(reiziger.getName());
+                Reiziger uitgestapte = eersteKlas[name];
+                eersteKlas.Remove(name);
                 showInfo(uitgestapte, " is uitgestapt");
                 return uitgestapte;
             }
-            else if (reiziger.getKaartje().Equals(2))
+            if (tweedeKlas.ContainsKey(name))
             {
-                Reiziger uitgestapte = tweedeKlas[reiziger.getName()];
-                tweedeKlas.Remove(reiziger.getName());
+                Reiziger uitgestapte = tweedeKlas[name];
+                tweedeKlas.Remove(name);
                 showInfo(uitgestapte, " is uitgestapt");
                 return uitgestapte;
             }
-
-            else return null;
+            else
+            {
+                return null;
+            }
         }
 
+        //Get Names
+        public string[] getNamesEerste()
+        {
+            return (string[])eersteKlas.Keys.ToArray();
+        }
+
+        public string[] getNamesTweede()
+        {
+            return (string[])tweedeKlas.Keys.ToArray();
+        }
 
         // Show info
         public void showInfo(Reiziger reiziger, string actie)

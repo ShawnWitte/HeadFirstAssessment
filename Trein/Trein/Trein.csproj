@@ -45,6 +45,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reiziger.cs" />
+    <Compile Include="Station.cs" />
     <Compile Include="Trein.cs" />
     <Compile Include="Wagon.cs" />
   </ItemGroup>
