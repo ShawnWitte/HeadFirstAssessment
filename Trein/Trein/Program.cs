@@ -22,6 +22,7 @@ namespace Trein
             Reiziger kees = new Reiziger("Kees", 2, "Vlissingen");
             Reiziger peter = new Reiziger("Peter", 2, "Vlissingen");
             Reiziger timon = new Reiziger("Timon", 2, "Vlissingen");
+            Reiziger johan = new Reiziger("Johan", 0, "Middelburg");
 
 
             //Laten instappen
@@ -31,11 +32,13 @@ namespace Trein
             wagon.instappen(kees);
             wagon.instappen(peter);
             wagon.instappen(timon);
+            wagon.instappen(johan);
 
 
             Console.WriteLine(wagon);
 
             wagon.uitstappen("Peter");
+            wagon.uitstappen("Timon");
             Console.WriteLine(wagon);
             Console.WriteLine(trein);
 

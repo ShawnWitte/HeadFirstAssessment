@@ -12,6 +12,7 @@ namespace Trein
         private int wagonNummer;
         private Dictionary<string, Reiziger> eersteKlas = new Dictionary<string, Reiziger>(3);
         private Dictionary<string, Reiziger> tweedeKlas = new Dictionary<string, Reiziger>(4);
+        private Dictionary<string, Reiziger> zwartRijder = new Dictionary<string, Reiziger>();
 
         //Wagonnummer
         public Wagon(int wagonNummer)
@@ -26,28 +27,30 @@ namespace Trein
         //Instappen
         public void instappen(Reiziger reiziger)
         {
-            if (reiziger.getKaartje().Equals(1))
+            if (reiziger.getKaartje() == 1)
             {
                 string key = reiziger.getName();
                 Reiziger value = reiziger;
                 this.eersteKlas.Add(reiziger.getName(), reiziger);
-                showInfo(reiziger, " is ingestapt");
+                showInfo(reiziger, " is ingestapt in de eerste klas");
             }
-            else if (reiziger.getKaartje().Equals(2))
+            else if (reiziger.getKaartje() == 2)
             {
                 string key = reiziger.getName();
                 Reiziger value = reiziger;
+                this.tweedeKlas.Add(reiziger.getName(), reiziger);
                 if (tweedeKlas.Count().Equals(4))
                 {
                     this.eersteKlas.Add(reiziger.getName(), reiziger);
-                    showInfo(reiziger, " is ingestapt");
-                }
-                else
-                {
-                    this.tweedeKlas.Add(reiziger.getName(), reiziger);
-                    showInfo(reiziger, " is ingestapt");
+                    showInfo(reiziger, " is ingestapt in de tweede klas");
                 }
             }
+            else
+            {
+                this.zwartRijder.Add(reiziger.getName(), reiziger);
+                showInfo(reiziger, " is ingestapt als zwartrijder en heeft zich verstopt in de trein.");
+            }
+
         }
         //Uitstappen
         
@@ -100,10 +103,15 @@ namespace Trein
             return tweedeKlas.Count();
         }
 
+        private int getCountZwartRijder()
+        {
+            return zwartRijder.Count();
+        }
+
         //Aantal mensen in de bus
         public override string ToString()
         {
-            return "Er zitten " + getCountEersteKlas() + " mens(en) in de eerste klas en " + getCountTweedeKlas() + " mens(en) in de tweede klas";
+            return "Er zitten " + getCountEersteKlas() + " mens(en) in de eerste klas en " + getCountTweedeKlas() + " mens(en) in de tweede klas en er rijdt/rijden er " + getCountZwartRijder() + " zwart";
         }
     }
 }
