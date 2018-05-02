@@ -8,32 +8,21 @@ namespace Trein
 {
     public class Station
     {
+
         private Stack<Reiziger> perron = new Stack<Reiziger>();
+        private string stad;
 
-        public void rijdtBinnen(Wagon wagon)
+        public Station(string stad)
         {
-            leegWagon(wagon);
-            vulWagon(wagon);
-            
+            this.stad = stad;
         }
 
-        public void leegWagon(Wagon wagon)
+        public string getStad()
         {
-            foreach(string name in wagon.getNamesEerste())
-            {
-                Reiziger uitgestapte = wagon.uitstappen(name);
-                perron.Push(uitgestapte);
-                wagon.uitstappen(name);
-            }
+            return stad;
         }
 
-        public void vulWagon(Wagon wagon)
-        {
-            while (perron.Any())
-            {
-                Reiziger opgestapelde = perron.Pop();
-                wagon.instappen(opgestapelde);
-            }
-        }
+        
+
     }
 }

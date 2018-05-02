@@ -54,26 +54,55 @@ namespace Trein
         }
         //Uitstappen
         
-        public Reiziger uitstappen(string name)
+        
+
+        public void uitstappen(Reiziger reiziger)
         {
-            if (eersteKlas.ContainsKey(name))
+
+            if (reiziger.getKaartje() == 1)
             {
-                Reiziger uitgestapte = eersteKlas[name];
-                eersteKlas.Remove(name);
-                showInfo(uitgestapte, " is uitgestapt");
-                return uitgestapte;
+                String key = reiziger.getName();
+                this.eersteKlas.Remove(key);
+                showInfo(reiziger, " is uitgestapt uit de eerste klasse.");
+
             }
-            if (tweedeKlas.ContainsKey(name))
+            else if (reiziger.getKaartje() == 2)
             {
-                Reiziger uitgestapte = tweedeKlas[name];
-                tweedeKlas.Remove(name);
-                showInfo(uitgestapte, " is uitgestapt");
-                return uitgestapte;
+                String key = reiziger.getName();
+                this.tweedeKlas.Remove(key);
+                showInfo(reiziger, " is uitgestapt uit de tweede klasse.");
             }
             else
             {
-                return null;
+                String key = reiziger.getName();
+                Reiziger value = reiziger;
+                this.zwartRijder.Remove(key);
+                showInfo(reiziger, " is uit de wc gekomen en van de trein gezet.");
             }
+
+        }
+
+        public void controle(Reiziger reiziger)
+        {
+            if (reiziger.getKaartje() == 0)
+            {
+                showInfo(reiziger, " is betrapt op zwartrijden en is uit de trein gegooid");
+                uitstappen(reiziger);
+            }
+            else
+            {
+                showInfo(reiziger, " ");
+            }
+        }
+
+        public void aankomen(Reiziger reiziger, Station station)
+        {
+            if (reiziger.getBestemming() == station.getStad())
+            {
+                    showInfo(reiziger, " is veilig op zijn/haar bestemming aangekomen");
+                    uitstappen(reiziger);
+            }
+            
         }
 
         //Get Names
@@ -107,6 +136,8 @@ namespace Trein
         {
             return zwartRijder.Count();
         }
+
+
 
         //Aantal mensen in de bus
         public override string ToString()
